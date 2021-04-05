@@ -8,4 +8,4 @@ RUN chmod 777 /tmp/index.html
 
 EXPOSE 8080
 
-CMD [ "python3 -m http.server --directory /tmp 8080" ]
+CMD [ "/usr/bin/python3 -m http.server --directory /tmp 8080" ]
