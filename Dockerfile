@@ -1,10 +1,11 @@
 FROM fedora
 
 RUN yum -y update && yum clean all
-RUN yum -y install nginx && yum clean all
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-RUN echo "Debug Container" > /usr/share/nginx/html/index.html
+RUN yum -y install python3 tcpdump net-tools qperf curl wget nmap ncat && yum clean all
 
-EXPOSE 80
+ADD index.html /tmp/index.html
+RUN chmod 777 /tmp/index.html
 
-CMD [ "/usr/sbin/nginx" ]
+EXPOSE 8080
+
+CMD [ "python3 -m http.server --directory /tmp" ]
