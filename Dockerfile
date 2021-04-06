@@ -1,7 +1,7 @@
 FROM fedora
 
 RUN yum -y update && yum clean all
-RUN yum -y install python3 tcpdump net-tools qperf curl wget nmap netcat && yum clean all
+RUN yum -y install python3 tcpdump net-tools qperf curl wget nmap netcat iputils nfs-utils bind-utils && yum clean all
 
 ADD index.html /tmp/index.html
 ADD http-server.sh /tmp/http-server.sh
